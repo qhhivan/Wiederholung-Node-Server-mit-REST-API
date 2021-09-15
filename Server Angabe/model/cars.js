@@ -2,39 +2,57 @@
 const cars = require('./cars.json');
 
 // Route zum Holen aller Informationen über die Autos in cars.json.
-function getCar() {
+function getCars() {
   return cars;
 }
+
 // Route zum Ändern des Status eines Autos. Zum Beispiel von available auf reserved oder sold.
 function UpdateStatus(id, status) {
-    if (status == available || status == sold || status == reserved) {
-        let car = cars.find((el) => el.id === id)
-        car.status = status,
-    }
+  if (status === 'available' || status === 'sold' || status === 'reserved') {
+    const car = cars.find((el) => el.id === id);
+    car.status = status;
+    return car;
+  }
 }
+
 // Route zum Löschen eines Autos.
 function deleteVehicle(id) {
-    
+  return cars.filter((el) => el.id !== id);
 }
-// Route zum Einfügen eines neuen Autos. Daten:
+
+// Route zum Einfügen eines neuen Autos.
+function addVehicle({
+  title,
+  status,
+  price,
+  image,
+  miles,
+  yearOfMake,
+  owner,
+  description,
+}) {
+  const newID = cars[cars.length - 1].id + 1;
+
+  const newCar = {
+    newID,
+    title,
+    status,
+    price,
+    image,
+    miles,
+    yearOfMake,
+    owner,
+    description,
+  };
+  // If does not exist push
+  if (cars.indexOf(newCar) === -1) cars.push(newCar);
+  else console.log('This item already exists');
+  console.log(newCar);
+}
 
 module.exports = {
-  getCar,
+  getCars,
+  UpdateStatus,
+  deleteVehicle,
+  addVehicle,
 };
-
-/*
-{
-    "id": 8,
-    "title": "Fair Price",
-    "status": "available",
-    "price": "102.100 $",
-    "image": "http://localhost:3000/images/car8.png",
-    "miles": 112921,
-    "yearOfMake": 2016,
-    "owner": {
-      "firstName": "Victor",
-      "lastName": "Pawlek"
-    },
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat."
-}
-  */

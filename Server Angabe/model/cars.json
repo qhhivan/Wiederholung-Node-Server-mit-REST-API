@@ -96,19 +96,5 @@
       "lastName": "Baumgartner"
     },
     "description": "Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat."
-  },
-  {
-    "id": 8,
-    "title": "Fair Price",
-    "status": "available",
-    "price": "102.100 $",
-    "image": "http://localhost:3000/images/car8.png",
-    "miles": 112921,
-    "yearOfMake": 2016,
-    "owner": {
-      "firstName": "Victor",
-      "lastName": "Pawlek"
-    },
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat."
   }
 ]
