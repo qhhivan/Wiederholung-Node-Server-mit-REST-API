@@ -30,7 +30,9 @@ router.patch(
 // Route zum Löschen eines Autos.
 router.delete(
   '/cars/:id',
-  asyncHandler(async (req, res) => res.status(200).json(deleteVehicle(Number(req.params.id)))),
+  asyncHandler(async (req, res) =>
+    res.status(200).json(deleteVehicle(Number(req.params.id))),
+  ),
 );
 
 // Route zum Einfügen eines neuen Autos. Daten:
